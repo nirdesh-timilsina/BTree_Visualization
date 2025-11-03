@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B-Tree Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>B-TREE VISUALIZER</h1>
+        
+        <div class="controls">
+            <div class="control-group">
+                <label for="order">Tree Order (m):</label>
+                <input type="number" id="order" value="5" min="3" max="7">
+                <span style="color: #666;">Maximum m children and (m-1) keys per node</span>
+            </div>
+            
+            <div class="control-group">
+                <label for="value">Value:</label>
+                <input type="number" id="value" placeholder="Enter a number">
+                <button class="btn-insert" id="btnInsert">Insert</button>
+                <button class="btn-delete" id="btnDelete">Delete</button>
+                <button class="btn-search" id="btnSearch">Search</button>
+                <button class="btn-clear" id="btnClear">Clear Tree</button>
+            </div>
+
+            <div class="generate-section">
+                <label for="generateValues">Generate Tree:</label>
+                <input type="text" id="generateValues" placeholder="Enter comma-separated values (e.g., 10,20,30,40,50)">
+                <button class="btn-generate" id="btnGenerate">Generate</button>
+                <span style="margin: 0 10px; color: #999;">OR</span>
+                <label for="randomCount">Random nodes:</label>
+                <input type="number" id="randomCount" value="15" min="5" max="50" style="width: 100px;">
+                <button class="btn-generate" id="btnRandom">Generate Random</button>
+            </div>
+
+            <div class="info">
+                <p><strong>Instructions:</strong></p>
+                <p>• Order (m): Maximum number of children per node</p>
+                <p>• Each node can have at most (m-1) keys and m children</p>
+                <p id="treeInfo">Nodes: 0 | Total Keys: 0 | Height: 0</p>
+            </div>
+
+            <div class="properties">
+                <h3>Current B-Tree Properties (Order = <span id="currentOrder">5</span>):</h3>
+                <ul>
+                    <li>Maximum keys per node: <strong><span id="maxKeys">4</span></strong></li>
+                    <li>Maximum children per node: <strong><span id="maxChildren">5</span></strong></li>
+                    <li>Minimum keys (non-root): <strong><span id="minKeys">2</span></strong></li>
+                    <li>Minimum children (non-root, non-leaf): <strong><span id="minChildren">3</span></strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="message"></div>
+
+        <div class="visualization">
+            <canvas id="canvas"></canvas>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
